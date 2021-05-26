@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <h1>Autoilumittari</h1>
+    <form>
+        <p>Valitse auto:</p>
+        <input type="radio" id="autoA" name="auto" value="3" checked/>
+        <label for="autoA">Auto A: 3 l / 100 km</label><br>
+        <input type="radio" id="autoB" name="auto" value="3.5" />
+        <label for="autoB">Auto B: 3.5 l / 100 km</label><br>
+        <input type="radio" id="autoC" name="auto" value="4" />
+        <label for="autoC">Auto C: 4 l / 100 km</label><br>
+
+        <label for="matka">Etäisyys:</label>
+        <input type="number" id="matka" name="matka"><br>
+
+        <label for="nopeus1">Nopeus 1:</label>
+        <input type="number" id="nopeus1" name="nopeus1"><br>
+        <label for="nopeus2">Nopeus 2:</label>
+        <input type="number" id="nopeus2" name="nopeus2"><br>
+
+        <button type="button" onclick="autonValinta()">Näytä Auto</button><br>
+    </form>
+    <div>
+        <p id="mikaAuto"></p>
+        <p id="ajat"></p>
+    </div>
+
+    <script type="text/javascript" src="skriptit.js"></script>
+</body>
+
+</html>
+
+<!--
+//  Sovelluksen tulee pystyä 
+// suorittamaan vertailu matka-ajan ja polttoaineen kulutuksen välillä kahden eri
+// valitun nopeuden mukaan: käyttäjä ilmoittaa saman matkustettavan etäisyyden
+// samalla kulkuneuvotyypillä eri nopeuksilla ja sovellus laskee miten paljon 
+// nopeammin käyttäjä on perillä ja kuinka paljon enemmän polttoainetta tähän 
+// kuluu. Etäisyyden sekä kulkuneuvotyypin tulee siis olla molemmissa samat.
+// Sovelluksen tulee pystyä näyttämään web-käyttöliittymässä molemmista annetuista 
+// matkanopeuksista käytetty aika ja polttoaine, sekä näiden kahden ero.
+
+
+// KÄYTTÄJÄ ANTAA MATKAN JA 2 ERI NOPEUTTA JA SOVELLUS LASKEE PALJONKO KULUU AIKAA KUMMALLAKIN 
+// ERI NOPEUDELLA JA PALJONKO KULUU BENSAA KUMMALLAKIN NOPEUDELLA
+
+//
+// Sovelluksessa tulee pystyä tarkastelemaan kolmen erilaisen auton tuloksia. 
+// Autojen bensankulutus kasvaa 1.009 kulmakertoimella. Eli jos auton nopeus kasvaa 
+// 1km/h, niin bensankulutus kasvaa 1.009 kertaiseksi. Eri autojen bensakulutus 
+// 1km/h nopeudella on seuraava:
+// Auto A: 3l / 100km
+// Auto B: 3.5l / 100km
+// Auto C: 4l / 100km
+-->
