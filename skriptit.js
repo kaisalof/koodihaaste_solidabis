@@ -7,18 +7,24 @@ function autonValinta() {
         polttoaine = document.getElementById("autoC").value;
     }
 
-    var matkaMetreinä = document.getElementById("matka").value * 1000;
+    var matka = document.getElementById("matka").value;
+    var matkaMetreinä = matka * 1000;
 
-    var nopeus1 = document.getElementById("nopeus1").value / 3.6;
-    var nopeus2 = document.getElementById("nopeus2").value / 3.6;
+    var n1 = document.getElementById("nopeus1").value;
+    var n2 = document.getElementById("nopeus2").value;
+    var nopeus1 = n1 / 3.6;
+    var nopeus2 = n2 / 3.6;
 
+    console.log(n1 + " " + nopeus1 + " " + n2 + " " + nopeus2);
     var aika1 = matkaMetreinä / nopeus1;
     var aika2 = matkaMetreinä / nopeus2;
 
     muunnaAika(aika1, aika2);
-    //document.getElementById("mikaAuto").innerHTML = vertaaAjat; // "polttoaine: " + polttoaine + " matka: " + matka + "m. nopeus1: " + nopeus1 + "m/s. nopeus2: " + nopeus2 + "m/s";
+
+    polttoaineKulutus(polttoaine, matka, n1, n2);
 }
 
+// Muuntaa ajan tunneiksi ja minuuteiksi ja tulostaa molempien nopeuksien ajat ja aikaeron
 function muunnaAika(aika1, aika2) {
     var tunnit1 = Math.floor(aika1 / 60 / 60);
 
@@ -27,11 +33,13 @@ function muunnaAika(aika1, aika2) {
     var tunnit2 = Math.floor(aika2 / 60 / 60);
     var minuutit2 = Math.floor(aika2 / 60) - (tunnit2 * 60);
     console.log("tunnit 2 " + tunnit2 + " minuutit 2 " + minuutit2);
-    document.getElementById("nopeusEka").innerHTML += tulostaAika(tunnit1, minuutit1);
-    document.getElementById("nopeusToka").innerHTML += tulostaAika(tunnit2, minuutit2);
+
+    document.getElementById("nopeusEka").innerHTML = tulostaAika(tunnit1, minuutit1);
+    document.getElementById("nopeusToka").innerHTML = tulostaAika(tunnit2, minuutit2);
     document.getElementById("aikojenEro").innerHTML = aikaEro(tunnit1, minuutit1, tunnit2, minuutit2);
 }
 
+//Tulostaa molempien eri nopeuksien mukaan kuluneen matka-ajan
 function tulostaAika(t, m) {
     var aika;
     if (t == 1) {
@@ -48,6 +56,7 @@ function tulostaAika(t, m) {
     return aika;
 }
 
+// Vertaa molempia aikoja ja laskee kuinka paljon nopeampi toinen aika on
 function aikaEro(t1, m1, t2, m2) {
     var nopeampi;
     var tuntiEro;
@@ -96,3 +105,23 @@ function aikaEro(t1, m1, t2, m2) {
     }
     return nopeampi;
 }
+
+//Muutetaan ensin polttoaineenkulutus per 1 km
+function polttoaineKulutus(p, m, n1, n2) {
+    var kulutus1 = p / 100;
+    var kulutus2 = p / 100;
+
+    for (var i = 0; i < n1 - 1; i++) {
+        kulutus1 = kulutus1 * 1.009;
+    }
+    kulutus1 = kulutus1 * m;
+
+    for (var j = 0; j < n2 - 1; i++) {
+        kulutus2 = kulutus2 * 1.009;
+    }
+    kulutus2 = kulutus2 * m;
+
+    console.log("kulutus1 " + kulutus1 + " kulutus2 " + kulutus2);
+}
+// for looppi jossa kerrotaan 30ml tai 35 ml tai 40 ml * 1,009 
+// ja niin monta kertaa kerrotaan kuin on nopeus -1
