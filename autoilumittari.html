@@ -7,51 +7,54 @@
 
 <body>
     <h1>Autoilumittari</h1>
-
-    <h2>Valitse auto:</h2>
-    <!--<input type="radio" id="autoA" name="auto" value="3" checked/>
+    <div id="content">
+        <h2>Valitse auto:</h2>
+        <!--<input type="radio" id="autoA" name="auto" value="3" checked/>
     <label for="autoA">Auto A: 3 l / 100 km</label><br>
     <input type="radio" id="autoB" name="auto" value="3.5" />
     <label for="autoB">Auto B: 3.5 l / 100 km</label><br>
     <input type="radio" id="autoC" name="auto" value="4" />
     <label for="autoC">Auto C: 4 l / 100 km</label><br>-->
-    <div>
-        <button class="autoPainike" onclick="autoValittu('autoA', '3')">Auto A</button>
-        <button class="autoPainike" onclick="autoValittu('autoB', '3.5')">Auto B</button>
-        <button class="autoPainike" onclick="autoValittu('autoC', '4')">Auto C</button>
+        <div>
+            <button class="autoPainike" onclick="autoValittu('autoA', '3')">Auto A</button>
+            <button class="autoPainike" onclick="autoValittu('autoB', '3.5')">Auto B</button>
+            <button class="autoPainike" onclick="autoValittu('autoC', '4')">Auto C</button>
+        </div>
+
+        <div id="autonKulutus">
+            <p id="kulutus">Bensan kulutus:</p>
+            <p class="autot" id="autoA">3 l / 100 km</p>
+            <p class="autot" id="autoB" style="display: none;">3.5 l / 100 km</p>
+            <p class="autot" id="autoC" style="display: none;"> 4 l / 100 km</p>
+        </div>
+
+        <div id="tiedot">
+            <div class="input">
+                <label class="tNimet" for="matka">Etäisyys:</label><br>
+                <input type="number" id="matka" name="matka">
+            </div>
+            <div class="input">
+                <label class="tNimet" for="nopeus1">Nopeus 1:</label><br>
+                <input type="number" id="nopeus1" name="nopeus1">
+            </div>
+            <div class="input">
+                <label class="tNimet" for="nopeus2">Nopeus 2:</label><br>
+                <input type="number" id="nopeus2" name="nopeus2">
+            </div>
+
+            <button id="laske" type="button" onclick="autonValinta()">Näytä Auto</button><br>
+        </div>
+
+        <div>
+            <p id="mikaAuto"></p>
+            <p id="nopeusEka"></p>
+            <p id="nopeusToka"></p>
+            <p id="aikojenEro"></p>
+            <p id="polttoaineEka"></p>
+            <p id="polttoaineToka"></p>
+            <p id="polttoaineEro"></p>
+        </div>
     </div>
-    <div id="autonKulutus">
-        <p id="kulutus">Bensan kulutus:</p>
-
-
-        <p class="autot" id="autoA">3 l / 100 km</p>
-
-        <p class="autot" id="autoB" style="display: none;">3.5 l / 100 km</p>
-
-        <p class="autot" id="autoC" style="display: none;"> 4 l / 100 km</p>
-
-    </div>
-
-    <label for="matka">Etäisyys:</label>
-    <input type="number" id="matka" name="matka"><br>
-
-    <label for="nopeus1">Nopeus 1:</label>
-    <input type="number" id="nopeus1" name="nopeus1"><br>
-    <label for="nopeus2">Nopeus 2:</label>
-    <input type="number" id="nopeus2" name="nopeus2"><br>
-
-    <button type="button" onclick="autonValinta()">Näytä Auto</button><br>
-
-    <div>
-        <p id="mikaAuto"></p>
-        <p id="nopeusEka"></p>
-        <p id="nopeusToka"></p>
-        <p id="aikojenEro"></p>
-        <p id="polttoaineEka"></p>
-        <p id="polttoaineToka"></p>
-        <p id="polttoaineEro"></p>
-    </div>
-
     <script type="text/javascript" src="skriptit.js"></script>
 </body>
 
