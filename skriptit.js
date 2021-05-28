@@ -1,12 +1,26 @@
+var polttoaine;
+
+function autoValittu(autoNimi, pa) {
+    var a = document.getElementsByClassName("autot");
+    for (var i = 0; i < a.length; i++) {
+        a[i].style.display = "none";
+    }
+
+    document.getElementById(autoNimi).style.display = "block";
+    polttoaine = pa;
+    //autonValinta(polttoaine);
+    //document.getElementById("autoBB").style.display = "none";
+}
+// Tarkistetaan, mikä auto on valittu
 function autonValinta() {
-    var polttoaine = 0;
+    /*var polttoaine = 0;
     if (document.getElementById("autoA").checked) {
         polttoaine = document.getElementById("autoA").value;
     } else if (document.getElementById("autoB").checked) {
         polttoaine = document.getElementById("autoB").value;
     } else if (document.getElementById("autoC").checked) {
         polttoaine = document.getElementById("autoC").value;
-    }
+    }*/
 
     var matka = document.getElementById("matka").value;
     var matkaMetreinä = matka * 1000;
@@ -51,7 +65,6 @@ function tulostaAika(t, m) {
     } else {
         aika = "Matkaan kulunut aika: " + t + " tuntia " + m + " minuuttia.";
     }
-    console.log(aika);
     return aika;
 }
 
@@ -60,7 +73,7 @@ function aikaEro(t1, m1, t2, m2) {
     var nopeampi;
     var tuntiEro;
     var minuuttiEro;
-    //console.log(t1 + ":" + m1);
+
     if (t1 > t2 || t1 == t2 && m1 > m2) {
         if (t1 > t2 && m1 < m2) {
             tuntiEro = t1 - 1 - t2;
@@ -105,7 +118,7 @@ function aikaEro(t1, m1, t2, m2) {
     return nopeampi;
 }
 
-//Muutetaan ensin polttoaineenkulutus per 1 km
+//Muutetaan ensin polttoaineenkulutus per 1 km ja sen jälkeen lasketaan nopeuden ja matkan perusteella kokonaiskulutus
 function polttoaineKulutus(p, m, n1, n2) {
 
     var kulutus1 = p / 100;
@@ -126,19 +139,17 @@ function polttoaineKulutus(p, m, n1, n2) {
     suurempiKulutus(kulutus1, kulutus2);
 }
 
+// Tarkistaa kumpi nopeus kuluttaa enemmän polttoainetta ja kuinka paljon
 function suurempiKulutus(k1, k2) {
     var suurempi = k1;
     var erotus;
+
     if (k1 < k2) {
         suurempi = k2;
-        erotus = k2 - k1;
+        erotus = (k2 - k1).toFixed(2);
         document.getElementById("polttoaineEro").innerHTML = "Nopeus 2 kuluttaa polttoainetta " + erotus + " litraa enemmän kuin nopeus 1.";
     } else {
-        erotus = k1 - k2;
-        document.getElementById("polttaineEro").innerHTML = "Nopeus 1 kuluttaa polttoainetta " + erotus + " litraa enemmän kuin nopeus 2.";
+        erotus = (k1 - k2).toFixed(2);
+        document.getElementById("polttoaineEro").innerHTML = "Nopeus 1 kuluttaa polttoainetta " + erotus + " litraa enemmän kuin nopeus 2.";
     }
-
-
 }
-// for looppi jossa kerrotaan 30ml tai 35 ml tai 40 ml * 1,009 
-// ja niin monta kertaa kerrotaan kuin on nopeus -1

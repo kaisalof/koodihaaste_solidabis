@@ -1,0 +1,29 @@
+body {
+    background-color: #E8DED0;
+    color: #C92632;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 100%;
+    margin: 0;
+}
+
+h1 {
+    background-color: #C92632;
+    color: white;
+    text-align: center;
+    margin-top: 0;
+    padding: 20px;
+}
+
+
+/*
+.autot {
+    display: none;
+}
+/*
+#autoAA {
+    display: block;
+}
+/*
+.autoPainike:focus {
+    color: red;
+}*/
