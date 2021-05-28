@@ -16,24 +16,21 @@
     <input type="radio" id="autoC" name="auto" value="4" />
     <label for="autoC">Auto C: 4 l / 100 km</label><br>-->
     <div>
-        <button class="autoPainike" onclick="autoValittu('autoAA', '3')">Auto A</button>
-        <button class="autoPainike" onclick="autoValittu('autoBB', '3.5')">Auto B</button>
-        <button class="autoPainike" onclick="autoValittu('autoCC', '4')">Auto C</button>
+        <button class="autoPainike" onclick="autoValittu('autoA', '3')">Auto A</button>
+        <button class="autoPainike" onclick="autoValittu('autoB', '3.5')">Auto B</button>
+        <button class="autoPainike" onclick="autoValittu('autoC', '4')">Auto C</button>
     </div>
-    <!--<div id="autonKulutus">-->
-    <p>Polttoaineen kulutus:</p>
+    <div id="autonKulutus">
+        <p id="kulutus">Bensan kulutus:</p>
 
-    <div class="autot" id="autoAA" value="3">
-        <p>3 l / 100 km</p>
+
+        <p class="autot" id="autoA">3 l / 100 km</p>
+
+        <p class="autot" id="autoB" style="display: none;">3.5 l / 100 km</p>
+
+        <p class="autot" id="autoC" style="display: none;"> 4 l / 100 km</p>
+
     </div>
-    <div class="autot" id="autoBB" value="3.5" style="display: none;">
-        <p>3.5 l / 100 km</p>
-    </div>
-    <div class="autot" id="autoCC" value="4" style="display: none;">
-        <p>4 l / 100 km</p>
-    </div>
-    <p id="value"></p>
-    <!--  </div>-->
 
     <label for="matka">Etäisyys:</label>
     <input type="number" id="matka" name="matka"><br>
