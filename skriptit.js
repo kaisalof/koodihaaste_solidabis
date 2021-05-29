@@ -12,7 +12,7 @@ function autoValittu(autoNimi, pa) {
     //document.getElementById("autoBB").style.display = "none";
 }
 // Tarkistetaan, mikä auto on valittu
-function autonValinta() {
+function autoLaskut() {
     /*var polttoaine = 0;
     if (document.getElementById("autoA").checked) {
         polttoaine = document.getElementById("autoA").value;
@@ -29,6 +29,7 @@ function autonValinta() {
     var n2 = document.getElementById("nopeus2").value;
     var nopeus1 = n1 / 3.6;
     var nopeus2 = n2 / 3.6;
+    //Täällä virhe, esim 99 ja 100 näyttää et ois sama nopeus
 
     var aika1 = matkaMetreinä / nopeus1;
     var aika2 = matkaMetreinä / nopeus2;
