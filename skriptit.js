@@ -29,6 +29,7 @@ function autoLaskut() {
     var n2 = document.getElementById("nopeus2").value;
     var nopeus1 = n1 / 3.6;
     var nopeus2 = n2 / 3.6;
+
     //Täällä virhe, esim 99 ja 100 näyttää et ois sama nopeus
 
     var aika1 = matkaMetreinä / nopeus1;
@@ -41,68 +42,90 @@ function autoLaskut() {
 
 // Muuntaa ajan tunneiksi ja minuuteiksi ja tulostaa molempien nopeuksien ajat ja aikaeron
 function muunnaAika(aika1, aika2) {
-    var tunnit1 = Math.floor(aika1 / 60 / 60);
+    var tunnit1 = Math.floor(aika1 / 3600);
     var minuutit1 = Math.floor(aika1 / 60) - (tunnit1 * 60);
+    var sekunnit1 = Math.floor(aika1 - (tunnit1 * 3600) - (minuutit1 * 60));
+    console.log(tunnit1 + " " + minuutit1 + " " + sekunnit1);
 
-    var tunnit2 = Math.floor(aika2 / 60 / 60);
+    var tunnit2 = Math.floor(aika2 / 3600);
     var minuutit2 = Math.floor(aika2 / 60) - (tunnit2 * 60);
+    var sekunnit2 = Math.floor(aika2 - (tunnit2 * 3600) - (minuutit2 * 60));
+    console.log(tunnit2 + " " + minuutit2 + " " + sekunnit2);
 
-    document.getElementById("nopeusEka").innerHTML = tulostaAika(tunnit1, minuutit1);
-    document.getElementById("nopeusToka").innerHTML = tulostaAika(tunnit2, minuutit2);
-    document.getElementById("aikojenEro").innerHTML = aikaEro(tunnit1, minuutit1, tunnit2, minuutit2);
+    //Lisää vielä sekunnit! 
+    document.getElementById("nopeusEka").innerHTML = tulostaAika(tunnit1, minuutit1, sekunnit1);
+    document.getElementById("nopeusToka").innerHTML = tulostaAika(tunnit2, minuutit2, sekunnit2);
+    document.getElementById("aikojenEro").innerHTML = aikaEro(tunnit1, minuutit1, sekunnit1, tunnit2, minuutit2, sekunnit2);
 }
 
 //Tulostaa molempien eri nopeuksien mukaan kuluneen matka-ajan
-function tulostaAika(t, m) {
+function tulostaAika(t, m, s) {
     var aika;
     if (t == 1) {
-        aika = "Matkaan kulunut aika: " + t + " tunti " + m + " minuuttia.";
-    } else if (t == 0) {
-        aika = "Matkaan kulunut aika: " + m + " minuuttia.";
-    } else if (t == 1 && m == 0) {
-        aika = "Matkaan kulunut aika: " + t + " tunti.";
-    } else if (m == 0) {
-        aika = "Matkaan kulunut aika: " + t + " tuntia.";
+        aika = t + " tunti " + m + " minuuttia " + s + " sekuntia.";
     } else {
-        aika = "Matkaan kulunut aika: " + t + " tuntia " + m + " minuuttia.";
+        aika = t + " tuntia " + m + " minuuttia " + s + " sekuntia.";
     }
     return aika;
 }
 
 // Vertaa molempia aikoja ja laskee kuinka paljon nopeampi toinen aika on
-function aikaEro(t1, m1, t2, m2) {
+function aikaEro(t1, m1, s1, t2, m2, s2) {
     var nopeampi;
-    var tuntiEro;
-    var minuuttiEro;
+    var tuntiEro = 0;
+    var minuuttiEro = 0;
+    var sekuntiEro = 0;
 
-    if (t1 > t2 || t1 == t2 && m1 > m2) {
-        if (t1 > t2 && m1 < m2) {
+    if (t1 > t2 || t1 == t2 && m1 > m2 || t1 == t2 && m1 == m2 && s1 > s2) {
+        if (m1 > m2 && s1 < s2) { //tunnitE minuutitE sekunnitV && tunnitY minuutitE sekunnitV	
+            tuntiEro = t1 - t2;
+            minuuttiEro = m1 - 1 - m2;
+            sekuntiEro = s1 + 60 - s2;
+        } else if (t1 > t2 && m1 < m2 && s1 < s2) { //tunnitE minuutitV sekunnitV
+            tuntiEro = t1 - 1 - t2;
+            minuuttiEro = m1 + 60 - 1 - m2;
+            sekuntiEro = s1 + 60 - s2;
+        } else if (t1 > t2 && m1 < m2 && s1 >= s2) { //tunnitE minuutitV sekunnitE
             tuntiEro = t1 - 1 - t2;
             minuuttiEro = m1 + 60 - m2;
-        } else {
+            sekuntiEro = s1 - s2;
+        } else { //tunnitE minuutitE sekunnitE &&tunnitY	minuutitE sekunnitE	 && 		1 tunnitY minuutitE sekunnitY
             tuntiEro = t1 - t2;
             minuuttiEro = m1 - m2;
+            sekuntiEro = s1 - s2;
         }
-        if (tuntiEro == 1) {
-            nopeampi = "Nopeus 2 on " + tuntiEro + " tunnin ja " + minuuttiEro + " minuuttia nopeampi."
-        } else if (tuntiEro == 0) {
-            nopeampi = "Nopeus 2 on " + minuuttiEro + " minuuttia nopeampi."
-        } else if (tuntiEro == 1 || minuuttiEro == 0) {
-            nopeampi = "Nopeus 2 on " + tuntiEro + " tunnin nopeampi."
-        } else if (minuuttiEro == 0) {
-            nopeampi = "Nopeus 2 on " + tuntiEro + " tuntia nopeampi."
-        } else {
-            nopeampi = "Nopeus 2 on " + tuntiEro + " tuntia ja " + minuuttiEro + " minuuttia nopeampi."
-        }
-    } else if (t1 < t2 || t1 == t2 && m1 < m2) {
-        if (t1 < t2 && m1 > m2) {
+        nopeampi = "Nopeus 2 on nopeampi " + tuntiEro + " t " + minuuttiEro + " min " + sekuntiEro + " sekuntia.";
+
+        /* if (tuntiEro == 1) {
+             nopeampi = "Nopeus 2 on " + tuntiEro + " tunnin ja " + minuuttiEro + " minuuttia nopeampi."
+         } else if (tuntiEro == 0) {
+             nopeampi = "Nopeus 2 on " + minuuttiEro + " minuuttia nopeampi."
+         } else if (tuntiEro == 1 || minuuttiEro == 0) {
+             nopeampi = "Nopeus 2 on " + tuntiEro + " tunnin nopeampi."
+         } else if (minuuttiEro == 0) {
+             nopeampi = "Nopeus 2 on " + tuntiEro + " tuntia nopeampi."
+         } else {
+             nopeampi = "Nopeus 2 on " + tuntiEro + " tuntia ja " + minuuttiEro + " minuuttia nopeampi."
+         }*/
+    } else if (t1 < t2 || t1 == t2 && m1 < m2 || t1 == t2 && m1 == m2 && s1 < s2) {
+        if (m1 < m2 && s1 > s2) {
+            tuntiEro = t2 - t1;
+            minuuttiEro = m2 - 1 - m1;
+            sekuntiEro = s2 + 60 + s1;
+        } else if (t1 < t2 && m1 > m2 && s1 > s2) {
+            tuntiEro = t2 - 1 - t1;
+            minuuttiEro = m2 - 1 + 60 - m1;
+            sekuntiEro = s2 + 60 + s1;
+        } else if (t1 < t2 && m1 > m2 && s1 <= s2) { //tunnitV minuutitE sekunnitV
             tuntiEro = t2 - 1 - t1;
             minuuttiEro = m2 + 60 - m1;
+            sekuntiEro = s2 - s1;
         } else {
             tuntiEro = t2 - t1;
             minuuttiEro = m2 - m1;
+            sekuntiEro = s2 - s1;
         }
-        if (tuntiEro == 1) {
+        /*if (tuntiEro == 1) {
             nopeampi = "Nopeus 1 on " + tuntiEro + " tunnin ja " + minuuttiEro + " minuuttia nopeampi."
         } else if (tuntiEro == 0) {
             nopeampi = "Nopeus 1 on " + minuuttiEro + " minuuttia nopeampi."
@@ -112,7 +135,8 @@ function aikaEro(t1, m1, t2, m2) {
             nopeampi = "Nopeus 1 on " + tuntiEro + " tuntia nopeampi."
         } else {
             nopeampi = "Nopeus 1 on " + tuntiEro + " tuntia ja " + minuuttiEro + " minuuttia nopeampi."
-        }
+        }*/
+        nopeampi = "Nopeus 1 on nopeampi " + tuntiEro + " t " + minuuttiEro + " min " + sekuntiEro + " sekuntia.";
     } else {
         nopeampi = "Sama nopeus."
     }
