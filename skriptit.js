@@ -61,7 +61,7 @@ function aikaEro(t1, m1, s1, t2, m2, s2) {
     var tuntiEro = 0;
     var minuuttiEro = 0;
     var sekuntiEro = 0;
-    //Täällä on vielä virheitä, esim tulostuu 8 t 4 min 123 sekuntia.
+
     if (t1 > t2 || t1 == t2 && m1 > m2 || t1 == t2 && m1 == m2 && s1 > s2) {
         if (m1 > m2 && s1 < s2) {
             tuntiEro = t1 - t2;
