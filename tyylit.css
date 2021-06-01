@@ -3,9 +3,6 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     width: 100%;
     margin: 0;
-    /*background-image: url("car.jpg");
-    background-repeat: repeat;
-    background-size: 100px 100px;*/
 }
 
 h1 {
@@ -14,6 +11,7 @@ h1 {
     text-align: center;
     margin-top: 0;
     padding: 20px;
+    margin-bottom: 10px;
     text-transform: uppercase;
     letter-spacing: 5px;
     font-size: 250%;
@@ -25,7 +23,7 @@ h1 {
     background-color: white;
     margin: auto;
     padding-top: 5px;
-    height: 1000px;
+    height: 800px;
     margin-bottom: 10px;
     border-top: 15px solid #C92632;
     border-bottom: 15px solid #C92632;
@@ -157,7 +155,12 @@ input[type=number]:focus {
 #tokat {
     flex: 1;
     padding-top: 30px;
-    padding-bottom: 30px;
+    padding-bottom: 10px;
+}
+
+#ekat p,
+#tokat p {
+    padding-left: 30px;
 }
 
 h3 {
@@ -174,9 +177,13 @@ h3 {
     border-right: 1px solid white;
 }
 
-
-/*#tokat {}*/
-
 #tokat h3 {
     border-left: 1px solid white;
 }
+
+#ero {
+    border-top: 1px solid #C92632;
+    text-align: center;
+}
+
+#aikojenEro {}
