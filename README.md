@@ -26,10 +26,10 @@ cd koodihaaste_solidabis
 Käynnistä sovellus
 ```bash
 # Windows
-start autoilumittari.html
+start index.html
 
 # Mac
-open autoilumittari.html
+open index.html
 ```
 
 ## Sovelluksen käyttö
