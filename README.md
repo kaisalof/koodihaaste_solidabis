@@ -15,6 +15,10 @@ Sovelluksen ulkoasu on yksinkertainen, helppolukuinen ja responsiivinen.
 ## Sovelluksen käynnistäminen
 
 ```bash
+git clone https://github.com/kaisalof/koodihaaste_solidabis.git
+```
+
+```bash
 start autoilumittari.html
 ```
 
