@@ -1,7 +1,3 @@
-Mitä teknologioita olet käyttänyt ja millä käyttöjärjestelmällä
-Ohjeet miten ratkaisusi pystytetään ja käynnistetään
-Muutaman lauseen kuvaus tekemästäsi ratkaisusta
-
 # Solidabis-koodihaaste 2021
 
 Kaverini linkkasi minulle tämän koodihaasteen, ja näin valmistumisen kynnyksellä, kun kaikki kouluhommat on jo valmiit, päädyin tarttumaan haasteeseen.
@@ -15,11 +11,27 @@ Sovelluksen ulkoasu on yksinkertainen, helppolukuinen ja responsiivinen.
 ## Sovelluksen käynnistäminen
 
 ```bash
+```
+Avaa komentorivi ja siirry kansioon, johon haluat sovelluksen ladata.
+
+Kopioi tiedostot:
+
+```bash
 git clone https://github.com/kaisalof/koodihaaste_solidabis.git
 ```
 
+Siirry kopioituun kansioon:
 ```bash
+cd koodihaaste_solidabis
+```
+
+Käynnistä sovellus
+```bash
+# Windows
 start autoilumittari.html
+
+#Mac
+open autoilumittari.html
 ```
 
 ## Sovelluksen käyttö
@@ -29,4 +41,3 @@ Sovelluksessa valitaan ensimmäiseksi, mitä autoa halutaan käyttää. Oletukse
 Seuraavaksi käyttäjä syöttää etäisyyden ja kaksi eri nopeutta. Tämän jälkeen klikataan Laske-painiketta, jolloin sovellus laskee ja vertailee käyttäjän syöttämiä tietoja. 
 
 Tulokset tulostuvat sovelluksen alaosaan, jossa näkyy kummallakin nopeudella matkaan kuluva aika sekä polttoainekulutus. Lisäksi sovellus vertaa molempien nopeuksien matkaan kuluvien aikojen eroa sekä polttoainekulutusta.
-
