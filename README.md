@@ -39,3 +39,8 @@ Sovelluksessa valitaan ensimmäiseksi, mitä autoa halutaan käyttää. Oletukse
 Seuraavaksi käyttäjä syöttää etäisyyden ja kaksi eri nopeutta. Tämän jälkeen klikataan Laske-painiketta, jolloin sovellus laskee ja vertailee käyttäjän syöttämiä tietoja. 
 
 Tulokset tulostuvat sovelluksen alaosaan, jossa näkyy kummallakin nopeudella matkaan kuluva aika sekä polttoainekulutus. Lisäksi sovellus vertaa molempien nopeuksien matkaan kuluvien aikojen eroa sekä polttoainekulutusta.
+
+## Linkki
+
+Sovellus toimii myös osoitteessa: 
+https://awesome-ride-a83954.netlify.app/
