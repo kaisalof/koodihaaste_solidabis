@@ -10,8 +10,6 @@ Sovelluksen ulkoasu on yksinkertainen, helppolukuinen ja responsiivinen.
 
 ## Sovelluksen käynnistäminen
 
-```bash
-```
 Avaa komentorivi ja siirry kansioon, johon haluat sovelluksen ladata.
 
 Kopioi tiedostot:
@@ -30,7 +28,7 @@ Käynnistä sovellus
 # Windows
 start autoilumittari.html
 
-#Mac
+# Mac
 open autoilumittari.html
 ```
 
