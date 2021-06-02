@@ -62,12 +62,22 @@ h2 {
     text-align: center;
 }
 
+#mikaAuto {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 135%;
+    border-bottom: 1px solid #C92632;
+    width: 300px;
+    margin: auto;
+}
+
 #kulutus,
 .autot {
     font-size: 125%;
     position: relative;
     width: 50%;
     float: left;
+    margin-top: 0;
 }
 
 #kulutus {
@@ -184,4 +194,8 @@ h3 {
 #ero {
     border-top: 1px solid #C92632;
     text-align: center;
+}
+
+#aikojenEro {
+    margin-top: 10px;
 }

@@ -6,9 +6,20 @@ function autoValittu(autoNimi, pa) {
         a[i].style.display = "none";
     }
 
+    var a = "Auto A";
+
+    if (autoNimi == "autoA") {
+        a = "Auto A";
+    } else if (autoNimi == "autoB") {
+        a = "Auto B";
+    } else if (autoNimi == "autoC") {
+        a = "Auto C";
+    }
+
+    document.getElementById("mikaAuto").innerHTML = a;
+
     document.getElementById(autoNimi).style.display = "block";
     polttoaine = pa;
-    console.log(polttoaine);
 }
 
 // Tarkistetaan, mikä auto on valittu
@@ -62,6 +73,8 @@ function aikaEro(t1, m1, s1, t2, m2, s2) {
     var minuuttiEro = 0;
     var sekuntiEro = 0;
 
+
+
     if (t1 > t2 || t1 == t2 && m1 > m2 || t1 == t2 && m1 == m2 && s1 > s2) {
         if (m1 > m2 && s1 < s2) {
             tuntiEro = t1 - t2;
@@ -85,11 +98,11 @@ function aikaEro(t1, m1, s1, t2, m2, s2) {
         if (m1 < m2 && s1 > s2) {
             tuntiEro = t2 - t1;
             minuuttiEro = m2 - 1 - m1;
-            sekuntiEro = s2 + 60 + s1;
+            sekuntiEro = s2 + 60 - s1;
         } else if (t1 < t2 && m1 > m2 && s1 > s2) {
             tuntiEro = t2 - 1 - t1;
             minuuttiEro = m2 - 1 + 60 - m1;
-            sekuntiEro = s2 + 60 + s1;
+            sekuntiEro = s2 + 60 - s1;
         } else if (t1 < t2 && m1 > m2 && s1 <= s2) {
             tuntiEro = t2 - 1 - t1;
             minuuttiEro = m2 + 60 - m1;
