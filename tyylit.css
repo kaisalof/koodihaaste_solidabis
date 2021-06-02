@@ -97,6 +97,7 @@ h2 {
 
 #nopeudet {
     display: flex;
+    flex-direction: row;
 }
 
 #ekaNopeus,
@@ -159,6 +160,7 @@ input[type=number]:focus {
 
 #vertailut {
     display: flex;
+    flex-direction: row;
 }
 
 #ekat,
@@ -198,4 +200,34 @@ h3 {
 
 #aikojenEro {
     margin-top: 10px;
+}
+
+@media only screen and (max-width: 800px) {
+    #content {
+        width: 90%;
+        height: 1100px;
+    }
+    #nopeudet {
+        flex-direction: column;
+        text-align: center;
+    }
+    #ekaNopeus,
+    #tokaNopeus {
+        margin: 0;
+    }
+    #vertailut {
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 710px) {
+    #content {
+        height: 1200px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    #content {
+        height: 1250px;
+    }
 }
